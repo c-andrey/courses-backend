@@ -4,7 +4,7 @@ namespace Infrastructure\Database;
 
 use Domain\Entities\Course;
 use Domain\Repositories\CourseRepositoryInterface;
-use Infraestructure\Database\DatabaseConnection;
+use Infrastructure\Database\DatabaseConnection;
 use PDO;
 
 class MySQLCourseRepository implements CourseRepositoryInterface

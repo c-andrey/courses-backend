@@ -1,5 +1,7 @@
 <?php
 
+namespace Infrastructure\Http\Routes;
+
 use Infrastructure\Database\MySQLCourseRepository;
 use Infrastructure\Http\Controllers\CourseController;
 
