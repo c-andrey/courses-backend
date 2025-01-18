@@ -4,15 +4,16 @@ namespace Infrastructure\Database;
 
 use Domain\Entities\Course;
 use Domain\Repositories\CourseRepositoryInterface;
+use Infraestructure\Database\DatabaseConnection;
 use PDO;
 
 class MySQLCourseRepository implements CourseRepositoryInterface
 {
     private PDO $connection;
 
-    public function __construct(PDO $connection)
+    public function __construct()
     {
-        $this->connection = $connection;
+        $this->connection = DatabaseConnection::getConnection();
     }
 
     public function getAll(): array
