@@ -28,6 +28,7 @@ switch ($requestMethod && $_SERVER['REQUEST_URI'] === '/courses') {
         $id = $_GET['id'];
         $data = json_decode(file_get_contents('php://input'), true);        
         $controller->update($id, $data);
+        break;
     default:
         break;
 }
