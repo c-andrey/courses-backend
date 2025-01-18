@@ -57,4 +57,36 @@ class Course
     {
         return $this->updated_at;
     }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+
+    public function setCreatedAt($created_at)
+    {
+        $this->created_at = $created_at;
+    }
+
+    public function setUpdatedAt($updated_at)
+    {
+        $this->updated_at = $updated_at;
+    }
+
+
 }
