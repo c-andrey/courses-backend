@@ -88,5 +88,16 @@ class Course
         $this->updated_at = $updated_at;
     }
 
-
+    public function toArray()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'status' => $this->status,
+            'image' => $this->image,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+        ];
+    }
 }

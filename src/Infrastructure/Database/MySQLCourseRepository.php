@@ -22,7 +22,7 @@ class MySQLCourseRepository implements CourseRepositoryInterface
         $courses = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         return array_map(function ($course) {
-            return new Course(
+            $course = new Course(
                 $course['id'],
                 $course['name'],
                 $course['description'],
@@ -31,6 +31,8 @@ class MySQLCourseRepository implements CourseRepositoryInterface
                 $course['created_at'],
                 $course['updated_at']
             );
+
+            return $course->toArray();
         }, $courses);
     }
 
