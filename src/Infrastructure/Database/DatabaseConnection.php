@@ -18,8 +18,9 @@ class DatabaseConnection
                 $dbName = Env::get('DB_NAME');
                 $dbUser = Env::get('DB_USER');
                 $dbPass = Env::get('DB_PASSWORD');
+                $dbPort = Env::get('DB_PORT');
 
-                self::$connection = new PDO('mysql:host=' . $dbHost . ';dbname=' . $dbName, $dbUser, $dbPass);
+                self::$connection = new PDO("mysql:host=$dbHost;dbname=$dbName;port=$dbPort", $dbUser, $dbPass);
                 self::$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             } catch (PDOException $e) {
                 die('Erro na conexão com o banco de dados: ' . $e->getMessage());

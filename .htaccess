@@ -1,0 +1,17 @@
+# Ativa o módulo de reescrita
+RewriteEngine On
+
+# Redireciona todas as requisições para o index.php
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Define a regra para negar o acesso a arquivos .htaccess
+<Files .htaccess>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Define a regra para negar o acesso a arquivos sensíveis
+<FilesMatch "\.(env|ini|log|sh|bak|sql)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

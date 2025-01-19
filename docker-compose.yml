@@ -1,0 +1,35 @@
+services:
+  backend:
+    build: .
+    container_name: php-backend
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - revvo-network
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: always
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./database/initial.sql:/docker-entrypoint-initdb.d/initial.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: desafio_revvo
+      MYSQL_USER: asd
+      MYSQL_PASSWORD: asd
+    networks:
+      - revvo-network
+
+volumes:
+  db_data:
+
+networks:
+  revvo-network:
