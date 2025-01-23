@@ -11,8 +11,9 @@ class Course
     private $image;
     private $created_at;
     private $updated_at;
+    private $deleted_at;
 
-    public function __construct($id, $name, $description, $status, $image, $created_at, $updated_at)
+    public function __construct($id, $name, $description, $status, $image, $created_at, $updated_at, $deleted_at)
     {
         $this->id = $id;
         $this->name = $name;
@@ -21,6 +22,7 @@ class Course
         $this->image = $image;
         $this->created_at = $created_at;
         $this->updated_at = $updated_at;
+        $this->deleted_at = $deleted_at;
     }
 
     public function getId()
@@ -86,6 +88,16 @@ class Course
     public function setUpdatedAt($updated_at)
     {
         $this->updated_at = $updated_at;
+    }
+
+    public function getDeletedAt()
+    {
+        return $this->deleted_at;
+    }
+
+    public function setDeletedAt($deleted_at)
+    {
+        $this->deleted_at = $deleted_at;
     }
 
     public function toArray()

@@ -14,8 +14,8 @@ class GetAllCoursesUseCase
         $this->courseRepository = $courseRepository;
     }
 
-    public function execute(): array
+    public function execute($filter = ''): array
     {
-        return $this->courseRepository->getAll();
+        return $this->courseRepository->getAll($filter);
     }
 }

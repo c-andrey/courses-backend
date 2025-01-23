@@ -6,7 +6,7 @@ use Domain\Entities\Course;
 
 interface CourseRepositoryInterface
 {
-    public function getAll(): array;
+    public function getAll($filter): array;
     public function findById(int $id): Course;
     public function create(Course $course): void;
     public function update(Course $course): void;

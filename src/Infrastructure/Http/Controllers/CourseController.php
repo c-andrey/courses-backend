@@ -18,10 +18,11 @@ class CourseController
         $this->courseRepository = $courseRepository;
     }
 
-    public function index()
+    public function index(array $params = [])
     {
+        $filter = $params['filter'] ?? null;
         $useCase = new GetAllCoursesUseCase($this->courseRepository);
-        return $useCase->execute();
+        return $useCase->execute($filter);
     }
 
     public function show(int $id)
