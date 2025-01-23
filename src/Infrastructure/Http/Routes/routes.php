@@ -10,10 +10,9 @@ $controller = new CourseController($repository);
 
 $requestMethod = $_SERVER['REQUEST_METHOD'];
 $requestUri = $_SERVER['REQUEST_URI'];
+$requestPath = parse_url($requestUri, PHP_URL_PATH);
 
-$requestPath = strtok($requestUri, '?');
-
-if ($requestPath === '/courses') {
+if (preg_match('#^/courses(/(\d+))?$#', $requestPath, $matches)) {
     switch ($requestMethod) {
         case 'GET':
             if (isset($_GET['id'])) {
@@ -28,26 +27,33 @@ if ($requestPath === '/courses') {
 
         case 'POST':
             $data = json_decode(file_get_contents('php://input'), true);
-            $controller->store($data);
+            $course = $controller->store($data);
+            echo json_encode($course->toArray());
             break;
 
         case 'DELETE':
-            $id = $_GET['id'] ?? null;
-            if ($id) {
+            $pathParts = explode('/', $requestPath);
+            if (isset($pathParts[2]) && is_numeric($pathParts[2])) {
+                $id = (int) $pathParts[2];
                 $controller->destroy($id);
+                echo json_encode(['message' => 'Course deleted']);
             } else {
-                echo json_encode(['error' => 'ID is required for DELETE']);
+                http_response_code(400);
+                echo json_encode(['error' => 'Invalid ID for DELETE']);
             }
             break;
 
         case 'PUT':
         case 'PATCH':
-            $id = $_GET['id'] ?? null;
-            $data = json_decode(file_get_contents('php://input'), true);
-            if ($id && $data) {
+            $pathParts = explode('/', $requestPath);
+            if (isset($pathParts[1]) && is_numeric($pathParts[1])) {
+                $id = (int) $pathParts[1];
+                $data = json_decode(file_get_contents('php://input'), true);
                 $controller->update($id, $data);
+                echo json_encode(['message' => 'Course updated']);
             } else {
-                echo json_encode(['error' => 'ID and data are required for UPDATE']);
+                http_response_code(400);
+                echo json_encode(['error' => 'Invalid ID for UPDATE']);
             }
             break;
 

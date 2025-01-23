@@ -7,6 +7,7 @@ use Application\UseCases\DeleteCourseUseCase;
 use Application\UseCases\FindCourseByIdUseCase;
 use Application\UseCases\GetAllCoursesUseCase;
 use Application\UseCases\UpdateCourseUseCase;
+use Domain\Entities\Course;
 use Domain\Repositories\CourseRepositoryInterface;
 
 class CourseController
@@ -31,10 +32,10 @@ class CourseController
         return $useCase->execute($id);
     }
 
-    public function store(array $data)
+    public function store(array $data): Course
     {
         $useCase = new CreateCourseUseCase($this->courseRepository);
-        $useCase->execute($data);
+        return $useCase->execute($data);
     }
 
     public function update(int $id, array $data)

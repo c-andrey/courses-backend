@@ -57,7 +57,7 @@ class MySQLCourseRepository implements CourseRepositoryInterface
         );
     }
 
-    public function create(Course $course): void
+    public function create(Course $course): Course
     {
         $statement = $this->connection->prepare('INSERT INTO courses (name, description, status, image, created_at, updated_at) VALUES (:name, :description, :status, :image, :created_at, :updated_at)');
         $statement->execute([
@@ -68,6 +68,9 @@ class MySQLCourseRepository implements CourseRepositoryInterface
             'created_at' => $course->getCreatedAt(),
             'updated_at' => $course->getUpdatedAt()
         ]);
+
+        $course->setId((int)$this->connection->lastInsertId());
+        return $course;
     }
 
     public function update(Course $course): void

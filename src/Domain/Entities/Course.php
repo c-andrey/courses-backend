@@ -60,6 +60,11 @@ class Course
         return $this->updated_at;
     }
 
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
     public function setName($name)
     {
         $this->name = $name;

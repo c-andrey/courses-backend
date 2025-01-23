@@ -14,18 +14,19 @@ class CreateCourseUseCase
         $this->courseRepository = $courseRepository;
     }
 
-    public function execute(array $data): void
+    public function execute(array $data): Course
     {
         $course = new Course(
             null,
             $data['name'],
             $data['description'],
-            $data['status'],
+            'active',
             $data['image'],
             date('Y-m-d H:i:s'),
-            date('Y-m-d H:i:s')
+            date('Y-m-d H:i:s'),
+            null
         );
 
-        $this->courseRepository->create($course);
+        return $this->courseRepository->create($course);
     }
 }
