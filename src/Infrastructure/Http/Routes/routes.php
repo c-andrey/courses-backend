@@ -20,10 +20,7 @@ if ($requestPath === '/courses') {
                 echo json_encode($controller->show($_GET['id']));
             } else {
                 $params = [
-                    'filter' => $_GET['filter'] ?? null,
-                    'sort' => $_GET['sort'] ?? null,
-                    'page' => $_GET['page'] ?? 1,
-                    'perPage' => $_GET['perPage'] ?? 10
+                    'filter' => $_GET['filter'] ?? null
                 ];
                 echo json_encode($controller->index($params));
             }
