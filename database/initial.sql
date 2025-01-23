@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `courses` (
     `name` VARCHAR(255) NOT NULL,         
     `description` TEXT NOT NULL,          
     `status` ENUM('active', 'inactive') NOT NULL DEFAULT 'active',  
-    `image` TEXT,                         
+    `image` LONGTEXT,                         
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
     `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -14,4 +14,20 @@ CREATE TABLE IF NOT EXISTS `courses` (
 CREATE INDEX idx_courses_name ON `courses`(`name`);
 
 INSERT INTO `courses` (`name`, `description`, `status`, `image`) VALUES
-('Curso de PHP', 'Curso completo de PHP, com todos os tópicos importantes.', 'active', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUA...');
+('Curso de PHP', 'Curso completo de PHP, com todos os tópicos importantes.', 'active', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII');
+INSERT INTO `courses` (`name`, `description`, `status`, `image`) VALUES
+('Curso de PHP', 'Curso completo de PHP, com todos os tópicos importantes.', 'active', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII');
+INSERT INTO `courses` (`name`, `description`, `status`, `image`) VALUES
+('Curso de PHP', 'Curso completo de PHP, com todos os tópicos importantes.', 'active', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII');
+INSERT INTO `courses` (`name`, `description`, `status`, `image`) VALUES
+('Curso de PHP', 'Curso completo de PHP, com todos os tópicos importantes.', 'active', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII');
+INSERT INTO `courses` (`name`, `description`, `status`, `image`) VALUES
+('Curso de PHP', 'Curso completo de PHP, com todos os tópicos importantes.', 'active', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII');
+INSERT INTO `courses` (`name`, `description`, `status`, `image`) VALUES
+('Curso de PHP', 'Curso completo de PHP, com todos os tópicos importantes.', 'active', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII');
+INSERT INTO `courses` (`name`, `description`, `status`, `image`) VALUES
+('Curso de PHP', 'Curso completo de PHP, com todos os tópicos importantes.', 'active', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII');
+INSERT INTO `courses` (`name`, `description`, `status`, `image`) VALUES
+('Curso de PHP', 'Curso completo de PHP, com todos os tópicos importantes.', 'active', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII');
+INSERT INTO `courses` (`name`, `description`, `status`, `image`) VALUES
+('Curso de PHP', 'Curso completo de PHP, com todos os tópicos importantes.', 'active', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII');

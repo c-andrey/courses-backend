@@ -16,9 +16,11 @@ class MySQLCourseRepository implements CourseRepositoryInterface
         $this->connection = DatabaseConnection::getConnection();
     }
 
-    public function getAll(): array
+    public function getAll($filter): array
     {
-        $statement = $this->connection->query('SELECT * FROM courses');
+        $statement = $this->connection->query(
+            'SELECT * FROM courses WHERE (name LIKE "%' . $filter . '%" OR description LIKE "%' . $filter . '%") AND deleted_at IS NULL'
+        );
         $courses = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         return array_map(function ($course) {
@@ -29,7 +31,8 @@ class MySQLCourseRepository implements CourseRepositoryInterface
                 $course['status'],
                 $course['image'],
                 $course['created_at'],
-                $course['updated_at']
+                $course['updated_at'],
+                $course['deleted_at']
             );
 
             return $course->toArray();
@@ -49,7 +52,8 @@ class MySQLCourseRepository implements CourseRepositoryInterface
             $course['status'],
             $course['image'],
             $course['created_at'],
-            $course['updated_at']
+            $course['updated_at'],
+            $course['deleted_at']
         );
     }
 
@@ -81,7 +85,7 @@ class MySQLCourseRepository implements CourseRepositoryInterface
 
     public function delete(int $id): void
     {
-        $statement = $this->connection->prepare('DELETE FROM courses WHERE id = :id');
+        $statement = $this->connection->prepare('UPDATE courses SET deleted_at = NOW() WHERE id = :id');
         $statement->execute(['id' => $id]);
     }
 }
