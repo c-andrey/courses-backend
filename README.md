@@ -1,29 +1,30 @@
-# README #
+# Projeto Full Stack (Backend + Frontend)
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Este projeto contém duas aplicações: um backend e um frontend. Siga as instruções abaixo para configurar e iniciar ambos os serviços.
 
-### What is this repository for? ###
+---
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+## Backend
 
-### How do I get set up? ###
+### **Pré-requisitos**
+- Docker e Docker Compose instalados.
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+### **Configuração**
+1. Abra o arquivo `docker-compose.yml`.
+2. Configure a variável de porta para o backend, se necessário. Por padrão, a aplicação utiliza a porta `8080`.
 
-### Contribution guidelines ###
+### **Iniciar o Backend**
+Execute o comando abaixo na raiz do projeto:
+```bash
+docker compose up -d
+```
+Este comando irá:
+- Construir a imagem Docker do backend.
+- Iniciar o serviço em background.
 
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+### **Acessar o Backend**
+Após o backend ser iniciado, ele estará disponível no endereço:
+```
+http://localhost:<PORTA_CONFIGURADA>
+```
+Por padrão, a porta configurada é `8080`
