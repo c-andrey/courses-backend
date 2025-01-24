@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS `courses` (
     `status` ENUM('active', 'inactive') NOT NULL DEFAULT 'active',  
     `image` LONGTEXT,                         
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  
-    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP 
+    `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP ,
+    `deleted_at` TIMESTAMP NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE INDEX idx_courses_name ON `courses`(`name`);
