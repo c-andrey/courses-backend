@@ -9,8 +9,8 @@ $repository = new MySQLCourseRepository();
 $controller = new CourseController($repository);
 
 $requestMethod = $_SERVER['REQUEST_METHOD'];
-$requestUri = $_SERVER['REQUEST_URI'];
-$requestPath = parse_url($requestUri, PHP_URL_PATH);
+$requestUri = $_SERVER['REQUEST_URI'] ?? '';
+$requestPath = parse_url($requestUri, PHP_URL_PATH) ?? '';
 
 if (preg_match('#^/courses(/(\d+))?$#', $requestPath, $matches)) {
     switch ($requestMethod) {
@@ -46,8 +46,8 @@ if (preg_match('#^/courses(/(\d+))?$#', $requestPath, $matches)) {
         case 'PUT':
         case 'PATCH':
             $pathParts = explode('/', $requestPath);
-            if (isset($pathParts[1]) && is_numeric($pathParts[1])) {
-                $id = (int) $pathParts[1];
+            if (isset($pathParts[2]) && is_numeric($pathParts[2])) {
+                $id = (int) $pathParts[2];
                 $data = json_decode(file_get_contents('php://input'), true);
                 $controller->update($id, $data);
                 echo json_encode(['message' => 'Course updated']);
