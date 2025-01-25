@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS desafio_revvo;
-USE desafio_revvo;
+CREATE DATABASE IF NOT EXISTS courses;
+USE courses;
 
 CREATE TABLE IF NOT EXISTS `courses` (
     `id` INT AUTO_INCREMENT PRIMARY KEY,  
